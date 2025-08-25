@@ -1,0 +1,34 @@
+/* --- Variables de Color (CSS Custom Properties) --- */
+:root {
+    /* Colores Principales de tu Marca/Tema */
+    --primary-color: #F5BB00;       /* Amarillo/Dorado vibrante */
+    --secondary-color: #BA2D0B;     /* Rojo intenso */
+    --accent-color: #255C99;        /* Azul medio/oscuro */
+
+    /* Colores de Texto */
+    --text-dark: #EEF4ED;           /* Blanco roto/Gris muy claro (para texto principal sobre fondos oscuros) */
+    --text-medium: #FDEDF0;         /* Rosa muy pálido/Blanco cálido (para párrafos sobre fondos oscuros) */
+    --text-light: #1F1F1F;           /* Casi negro (para texto sobre fondos claros) */
+    --text-muted: #C2C2C2;           /* Gris medio (para elementos secundarios como tags) */
+
+    /* Colores de Fondo */
+    --bg-light: #151515;             /* Fondo muy oscuro, casi negro */
+    --bg-medium: #1F1F1F;            /* Fondo ligeramente menos oscuro que bg-light */
+    --bg-dark: #F5BB00;              /* Tu color principal (amarillo/dorado) para el nav */
+    --bg-hero-overlay: rgba(0, 0, 0, 0.6); /* Superposición oscura para la imagen del héroe */
+
+    /* Colores de Borde/Sombra */
+    --border-color-light: #444;
+    --border-color-medium: #666;
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --shadow-medium: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light); /* Fondo general de la página: muy oscuro */
+    color: var(--text-dark); /* Color de texto por defecto: blanco roto */
+    padding-top: 115px; /* ESPACIO PARA EL NAV FIJO. Ajusta si tu nav tiene otra altura. */
+}

@@ -1,0 +1,119 @@
+/* --- Styles for About Me, Contact, and Footer Sections --- */
+
+/* Shared Section Styling (for about-me and contact) */
+#about-me,
+#contact {
+    padding: 80px 40px; /* Increased padding for more spacious sections */
+    max-width: 70%; /* Consistent max-width for content */
+    margin: 60px auto; /* Centered with more vertical margin */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 10px 25px var(--shadow-medium); /* Prominent shadow for the dark theme */
+    text-align: center; /* Default text alignment, can be overridden for specific elements */
+}
+
+/* Shared H2 Styling (for about-me and contact titles) */
+#about-me h2,
+#contact h2 {
+    font-size: 3em; /* Large, impactful titles */
+    color: var(--primary-color); /* Your primary color for main headings */
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px; /* Space for the underline */
+}
+
+/* Shared Underline Effect for H2 */
+#about-me h2::after,
+#contact h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px; /* A bit wider underline */
+    height: 5px; /* Thicker underline */
+    background-color: var(--secondary-color); /* Your secondary color for accent */
+    border-radius: 3px;
+}
+
+
+/* About Me Specific Styles */
+#about-me {
+    background-color: var(--bg-medium); /* Slightly lighter dark background for this section */
+    color: var(--text-dark); /* Light text on dark background */
+    text-align: center; /* Justify paragraphs for a formal look */
+}
+
+#about-me p {
+    font-size: 1.1em; /* Readable paragraph font size */
+    line-height: 1.8; /* Increased line height for readability */
+    margin-bottom: 25px; /* More space between paragraphs */
+    color: var(--text-medium); /* Use a slightly different light color for paragraphs */
+    max-width: 80%; /* Limit paragraph width for better readability */
+    margin-left: auto;
+    margin-right: auto; /* Center paragraphs within the section */
+}
+
+/* Contact Specific Styles */
+#contact {
+    background-color: var(--bg-medium); /* Your main dark background for this section */
+    color: var(--text-dark); /* Light text on dark background */
+}
+
+.contact-intro {
+    font-size: 1.1em;
+    color: var(--text-medium);
+    margin-bottom: 40px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Space between each contact item */
+    margin-top: 30px;
+    align-items: center; /* Center contact items */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between icon and text */
+    font-size: 1.2em; /* Larger font for contact info */
+    color: var(--text-dark); /* Default text color for contact items */
+}
+
+.contact-item .icon {
+    font-size: 1.5em; /* Size for the icons */
+    color: var(--primary-color); /* Primary color for the icons */
+    line-height: 1; /* Ensures icon is vertically centered */
+}
+
+.contact-item p {
+    margin: 0; /* Remove default paragraph margin */
+    color: var(--text-dark); /* Explicitly set text color for consistency */
+}
+
+.contact-item a {
+    color: var(--accent-color); /* Your accent color for links */
+    text-decoration: none; /* No underline by default */
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--primary-color); /* Change to primary color on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+
+/* Footer Specific Styles */
+footer {
+    text-align: center;
+    font-size: 0.9em; /* Slightly larger than before */
+    padding: 30px 20px; /* More padding for a substantial footer */
+    background-color: var(--bg-medium); /* Consistent background with other secondary elements */
+    color: var(--text-muted); /* Muted text color for copyright info */
+    margin-top: 80px; /* Generous space from the section above */
+    border-top: 1px solid var(--border-color-medium); /* A subtle top border */
+}

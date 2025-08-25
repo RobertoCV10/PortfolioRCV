@@ -1,0 +1,174 @@
+/* Estilos específicos para la página de presentación del proyecto "Rocket" */
+
+/* Contenedor principal del contenido */
+.project-presentation-container {
+    max-width: 80%; /* Ancho máximo para el contenido, puedes ajustar */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    padding: 5px 5px; /* Relleno superior/inferior y a los lados */
+    color: var(--text-dark); /* Color de texto predeterminado para el contenido */
+}
+
+/* Sección hero/introducción del proyecto */
+.project-hero {
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.project-presentation-container h1 {
+    font-family: "Tektur", sans-serif;
+    font-size: 3.5em; /* Título principal grande y llamativo */
+    color: var(--primary-color); /* Color de acento */
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.project-hero .intro-paragraph {
+    font-family: sans-serif;
+    font-size: 1.4em; /* Párrafo introductorio más grande */
+    line-height: 1.8;
+    color: var(--text-medium); /* Un gris más suave para la descripción */
+    max-width: 700px; /* Limita el ancho del párrafo para mejor legibilidad */
+    margin: 0 auto;
+}
+
+/* Secciones generales de contenido */
+.project-section {
+    margin-bottom: 1px; /* Espacio entre secciones */
+}
+
+.project-section h2 {
+    font-family: "Tektur", sans-serif;
+    font-size: 2.4em;
+    color: var(--accent-color); /* Otro color de acento para los subtítulos */
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid var(--border-color-medium); /* Línea debajo del subtítulo */
+    padding-bottom: 15px;
+}
+
+.project-section h3 {
+    font-family: "Tektur", sans-serif;
+    font-size: 1.8em;
+    color: var(--secondary-color); /* Un tercer color de acento para sub-subtítulos */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.project-section p {
+    font-family: sans-serif;
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: var(--text-dark); /* Color de texto estándar para párrafos */
+    margin-bottom: 2px;
+    text-align: justify; /* Justifica el texto para una apariencia más limpia */
+}
+
+/* Estilo para imágenes individuales o principales */
+.project-image-full {
+    margin: 40px 0; /* Espacio alrededor de la figura */
+    text-align: center;
+}
+
+.project-image-full img {
+    max-width: 60%; /* Asegura que la imagen no se desborde */
+    height: auto;
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    box-shadow: var(--shadow-medium); /* Sombra para las imágenes */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen */
+}
+
+.project-image-full figcaption {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    color: var(--text-muted); /* Color para las leyendas de imagen */
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Estilo para galerías de imágenes en cuadrícula */
+.image-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 columnas en pantallas medianas, 1 en pequeñas */
+    gap: 30px; /* Espacio entre imágenes */
+    margin: 40px 0;
+}
+
+.image-gallery-grid figure {
+    margin: 0; /* Elimina margen por defecto de figure */
+    text-align: center;
+    background-color: var(--bg-medium); /* Fondo para cada imagen en la galería */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+}
+
+.image-gallery-grid img {
+    max-width: 100%;
+    height: 250px; /* Altura fija para las imágenes de la galería */
+    object-fit: cover; /* Cubre el espacio, recortando si es necesario */
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.image-gallery-grid figcaption {
+    font-family: sans-serif;
+    font-size: 1em;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Estilo para el enlace de GitHub */
+.github-link {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.call-to-action-button {
+    display: inline-flex; /* Permite alinear icono y texto */
+    align-items: center;
+    background-color: var(--accent-color); /* Color de fondo del botón */
+    color: var(--text-dark); /* Color del texto del botón */
+    font-family: "Tektur", sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow-medium);
+}
+
+.call-to-action-button:hover {
+    background-color: var(--secondary-color); /* Color al pasar el ratón */
+    transform: translateY(-3px); /* Pequeño efecto de levantamiento */
+}
+
+.call-to-action-button i {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+    font-size: 1.3em;
+}
+
+/* --- Responsividad Básica --- */
+@media (max-width: 768px) {
+    .project-presentation-container {
+        padding: 30px 15px;
+    }
+
+    .project-presentation-container h1 {
+        font-size: 2.5em;
+    }
+
+    .project-hero .intro-paragraph {
+        font-size: 1em;
+    }
+
+    .project-section h2 {
+        font-size: 1.8em;
+    }
+
+    .image-gallery-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}

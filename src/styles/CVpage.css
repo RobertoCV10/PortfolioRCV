@@ -1,0 +1,83 @@
+.cv-container {
+    padding: 80px 20px; /* Ajusta el padding para la sección */
+    max-width: 1000px; /* Limita el ancho del contenido principal */
+    margin: 0 auto; /* Centra el contenedor */
+    text-align: center;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.cv-title {
+    font-family: "Tektur", sans-serif;
+    font-size: 2.8em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.cv-pdf-viewer {
+    width: 100%;
+    /* Altura basada en el viewport para que sea flexible */
+    height: 80vh; /* Ocupa el 80% del alto del viewport */
+    border: 1px solid var(--border-color-medium);
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que el iframe no se desborde */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.cv-iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* Elimina el borde predeterminado del iframe */
+}
+
+.cv-download-section {
+    margin-top: 20px;
+}
+
+.cv-download-button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cv-download-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .cv-container {
+        padding: 60px 15px;
+    }
+    .cv-title {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    .cv-pdf-viewer {
+        height: 70vh; /* Ajusta la altura para móviles */
+    }
+    .cv-download-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cv-container {
+        padding: 40px 10px;
+    }
+    .cv-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .cv-pdf-viewer {
+        height: 60vh; /* Más compacto en teléfonos pequeños */
+    }
+}

@@ -1,0 +1,182 @@
+/* Sección Contenedora General */
+.tools-carousel-section {
+    padding: 60px 170px;
+    background-color: var(--bg-light); /* Fondo de la sección */
+    color: var(--text-dark);
+    text-align: center;
+    overflow-x: hidden; /* Asegura que la sección no tenga scroll horizontal */
+}
+
+.tools-carousel-title {
+    font-family: "Tektur", sans-serif; /* Consistente con tus encabezados */
+    font-size: 2.5em;
+    color: var(--primary-color); /* Color amarillo para el título */
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.tools-carousel-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.tools-carousel-title:hover::after {
+    width: 120px;
+}
+
+/* Wrapper del Carrusel (contiene el carrusel animado) */
+.tools-carousel-wrapper {
+    position: relative;
+    max-width: 850px; /* Limita el ancho del carrusel en pantallas grandes */
+    margin: 0 auto;
+    padding: 0 50px; /* Espacio para las flechas si se reintroducen, o margen interno */
+    overflow: hidden; /* Oculta cualquier desbordamiento dentro del wrapper */
+    box-sizing: border-box;
+}
+
+/* Contenedor de las imágenes del carrusel (el que se desplaza con animación) */
+.tools-carousel-container {
+    display: flex;
+    flex-wrap: nowrap; /* Fuerza que los elementos estén en una sola fila */
+    gap: 20px; /* Espacio entre las tarjetas */
+    overflow-x: hidden; /* Oculta la barra de scroll nativa y permite la animación */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+    
+    /* Configuración de la animación infinita */
+    animation: scroll-left 10s linear infinite; /* Duración ajustada para mayor fluidez */
+    width: max-content; /* Permite que el ancho del contenedor sea el de su contenido */
+    will-change: transform; /* Hint para el navegador para optimizar la animación */
+}
+
+/* Pausar la animación al pasar el ratón por encima */
+.tools-carousel-wrapper:hover .tools-carousel-container {
+    animation-play-state: paused;
+}
+
+/* Definición de la animación */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    /* Desplaza el 50% del ancho del contenedor.
+       Dado que el contenido está duplicado, esto debería crear un bucle perfecto. */
+    100% { transform: translateX(-50%); } 
+}
+
+/* Elemento Individual del Carrusel */
+.tools-carousel-item {
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
+    flex-shrink: 0; /* IMPT: Evita que los ítems se encojan y rompan la animación */
+    
+    /* Ancho fijo para desktop (3 ítems por fila + gaps, en un wrapper de 1100px efectivos) */
+    flex-basis: 353.33px; 
+    width: 353.33px; /* Asegura un ancho preciso para la animación fluida */
+    min-width: 200px; /* Mínimo para cuando flex-basis se reduce en media queries */
+
+    background-color: var(--bg-medium);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px var(--shadow-light);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default; /* Ya no es arrastrable por el usuario para scroll */
+}
+
+.tools-carousel-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px var(--shadow-medium);
+}
+
+.tools-carousel-item img {
+    max-width: 80%; /* Tamaño de la imagen de la herramienta */
+    height: auto;
+    max-height: 120px; /* Altura máxima para uniformidad */
+    margin-bottom: 15px;
+    object-fit: contain; /* Ajusta la imagen sin recortar */
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); /* Sombra para que destaque */
+}
+
+.tools-carousel-item h3 {
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+
+/* --- MEDIA QUERIES PARA ADAPTABILIDAD --- */
+
+/* Para pantallas de tablet y móviles grandes (2 ítems por fila) */
+@media (max-width: 992px) {
+    .tools-carousel-title {
+        font-size: 2.2em;
+    }
+    .tools-carousel-wrapper {
+        padding: 0 30px; /* Reduce padding lateral del wrapper */
+    }
+    .tools-carousel-item {
+        /* Para 2 ítems por fila + 1 gap. Si wrapper tiene 992px y 2*30px padding = 932px efectivos
+           (932px - 20px (gap)) / 2 = 456px por item */
+        flex-basis: 456px; 
+        width: 456px; /* Ancho preciso para 2 items */
+        min-width: 180px; /* Asegura un mínimo */
+        padding: 20px;
+    }
+    .tools-carousel-item img {
+        max-height: 100px;
+    }
+}
+
+/* Para pantallas de móviles (1 ítem por fila) */
+@media (max-width: 768px) {
+    .tools-carousel-title {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+    .tools-carousel-wrapper {
+        padding: 0 15px; /* Más compacto para móviles */
+    }
+    .tools-carousel-item {
+        flex-basis: 100%; /* Ocupa el ancho completo disponible */
+        width: 100%; /* Asegura que no haya problemas de flex-basis */
+        min-width: unset; /* Ya no necesitamos un min-width fijo aquí */
+        padding: 15px;
+    }
+    .tools-carousel-item img {
+        max-height: 80px;
+        margin-bottom: 10px;
+    }
+    .tools-carousel-item h3 {
+        font-size: 1em;
+    }
+}
+
+/* Para pantallas de móviles muy pequeñas */
+@media (max-width: 480px) {
+    .tools-carousel-section {
+        padding: 40px 10px; /* Reduce padding general de la sección */
+    }
+    .tools-carousel-title {
+        font-size: 1.5em;
+    }
+    .tools-carousel-wrapper {
+        padding: 0 10px;
+    }
+    .tools-carousel-item {
+        padding: 10px;
+    }
+    .tools-carousel-item img {
+        max-height: 60px;
+    }
+}

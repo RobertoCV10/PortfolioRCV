@@ -1,0 +1,224 @@
+
+
+/* Contenedor del encabezado y el filtro */
+.projects-header-controls {
+    display: flex;
+    justify-content: space-between; /* Empuja el encabezado a la izquierda, el filtro a la derecha */
+    align-items: flex-end; /* Alinea los elementos a la parte inferior */
+    padding: 40px; /* Relleno alrededor de esta sección */
+    max-width: 100%; /* CAMBIADO: Ahora ocupa todo el ancho */
+    margin: 0 auto; /* Centra el contenedor */
+    color: var(--text-dark); /* Color de texto general para esta sección */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    gap: 20px; /* Espacio entre header y filtro en móvil */
+}
+
+/* Estilos del encabezado principal de la página */
+.projects-main-header h1 {
+    font-family: "Tektur", sans-serif; /* Tu fuente de encabezado */
+    font-size: 2.8em;
+    color: var(--primary-color); /* Color amarillo para el título principal */
+    margin-bottom: 5px;
+    margin-top: 0; /* Elimina margen superior por defecto del h1 */
+}
+
+.projects-main-header p {
+    font-family: sans-serif; /* O la fuente que uses para el cuerpo */
+    font-size: 1.1em;
+    color: var(--text-dark); /* Texto "Select a project or filter by tag" */
+    margin-top: 0;
+}
+
+/* Estilos del selector de filtro */
+.filter-section {
+    display: flex; /* Para alinear el label y el select */
+    align-items: center;
+    flex-wrap: wrap; /* Permite que label y select se envuelvan */
+    gap: 10px;
+}
+
+.filter-section label {
+    font-family: "Tektur", sans-serif; /* Consistente con los encabezados */
+    font-size: 1.1em;
+    color: var(--text-dark);
+    margin-right: 10px;
+}
+
+.filter-section select {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color-medium); /* Borde sutil */
+    background-color: var(--bg-medium); /* Fondo oscuro para el select */
+    color: var(--text-dark); /* Texto claro para el select */
+    font-family: sans-serif; /* Fuente legible */
+    font-size: 1em;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23EEF4ED%22%20d%3D%22M287%2C197.91l-14.3-14.3c-2.8-2.8-7.2-2.8-10.1%2C0L146.2%2C280.9L30%2C164.7c-2.8-2.8-7.2-2.8-10.1%2C0L5%2C179c-2.8%2C2.8-2.8%2C7.2%2C0%2C10.1l136%2C136.2c2.8%2C2.8%2C7.2%2C2.8%2C10.1%2C0l136-136.2C289.8%2C205.1%2C289.8%2C200.7%2C287%2C197.9z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 20%;
+    background-size: 12px auto;
+}
+
+/* GALERÍA DE PROYECTOS (la cuadrícula) */
+.project-grid {
+    display:grid; /* ¡CRUCIAL! */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 60px;
+    padding: 70px;
+    max-width: 95%; /* CAMBIADO: Ahora ocupa todo el ancho */
+    margin: 0 auto;
+    container-type: inline-size; /* Define este elemento como un contenedor de consulta */
+    container-name: project-grid-container; /* Un nombre para referenciarlo */
+}
+
+/* Estilos para cada TARJETA DE PROYECTO */
+.project-card {
+    background-color: var(--bg-medium);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+    width: auto;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.project-card .project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-card .project-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 {
+    font-family: "Tektur", sans-serif;
+    font-weight: 600;
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+}
+
+.project-card .project-description {
+    font-family: sans-serif;
+    font-size: 0.9em;
+    color: var(--text-dark);
+    margin: 0 0 10px 0;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* Estilos para las etiquetas (tags) */
+.project-card .project-tags {
+    margin-top: auto;
+}
+
+.project-card .tag {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+/* Media Queries Responsivas para el Encabezado y Filtro (Viewport based) */
+@media (max-width: 768px) {
+    .projects-header-controls {
+        flex-direction: column; /* Apila el encabezado y el filtro */
+        align-items: flex-start;
+        padding: 20px;
+    }
+    .projects-main-header h1 {
+        font-size: 2em;
+    }
+    .projects-main-header p {
+        font-size: 0.9em;
+    }
+    .filter-section {
+        width: 100%; /* El filtro ocupa todo el ancho */
+        justify-content: flex-start;
+    }
+    .filter-section select {
+        width: auto; /* Ajusta el ancho del select automáticamente */
+    }
+}
+
+/* Container Queries para las tarjetas dentro de la cuadrícula (Container based) */
+/* Si el contenedor .project-grid tiene 1000px o menos de ancho */
+@container project-grid-container (max-width: 1000px) {
+    .project-card {
+        padding: 20px;
+    }
+    .project-card .project-image {
+        height: 180px;
+    }
+    .project-card h3 {
+        font-size: 1.2em;
+    }
+    .project-card .project-description {
+        font-size: 0.85em;
+    }
+    .project-card .tag {
+        font-size: 0.75em;
+    }
+}
+
+/* Si el contenedor .project-grid tiene 600px o menos de ancho */
+@container project-grid-container (max-width: 600px) {
+    .project-card {
+        padding: 15px;
+    }
+    .project-card .project-image {
+        height: 150px; /* Reduce la altura de la imagen */
+    }
+    .project-card h3 {
+        font-size: 1.1em; /* Reduce el tamaño del título */
+    }
+    .project-card .project-description {
+        font-size: 0.8em; /* Reduce el tamaño de la descripción */
+    }
+    .project-card .tag {
+        font-size: 0.7em; /* Reduce el tamaño de las etiquetas */
+    }
+}
+
+/* Si el contenedor .project-grid tiene 400px o menos de ancho */
+@container project-grid-container (max-width: 400px) {
+    .project-card {
+        padding: 10px; /* Reduce aún más el padding de la tarjeta */
+    }
+    .project-card .project-image {
+        height: 120px; /* Reduce aún más la altura de la imagen */
+    }
+    .project-card h3 {
+        font-size: 1em; /* Títulos más pequeños */
+    }
+    .project-card .project-description {
+        font-size: 0.75em; /* Descripciones más pequeñas */
+    }
+}

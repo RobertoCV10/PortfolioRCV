@@ -1,0 +1,159 @@
+/* General */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light); /* Aplicar color de fondo general aquí */
+    color: var(--text-dark); /* Por defecto, el texto principal es claro para fondos oscuros */
+    padding-top: 115px; /* ESPACIO PARA EL NAV FIJO. Ajusta si tu nav tiene otra altura. */
+
+}
+
+/* NAV */
+nav {
+    background-color: var(--primary-color);
+    padding: 10px 40px;
+    margin-top: 0px;
+
+    /* --- ¡NUEVAS PROPIEDADES PARA HACERLO FIJO! --- */
+    position: fixed; /* Hace que el elemento no se mueva con el scroll */
+    top: 0;          /* Lo pega a la parte superior de la ventana */
+    width: 100%;     /* Asegura que ocupe todo el ancho de la ventana */
+    z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+    /* ----------------------------------------------- */
+
+    box-sizing: border-box; /* Mantiene el padding dentro del ancho total */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 90px;
+    width: auto;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    margin-left: 70px;
+}
+
+.nav-menu li {
+    margin: 0;
+}
+
+.nav-menu a {
+    font-family: "Tektur", sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    color: var(--bg-medium); /* Usando la variable de color */
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    color: var(--secondary-color);
+}
+
+/* NAV SOCIAL ICONS - Iconos a la derecha */
+.nav-social-icons {
+    display: flex;
+    gap: 20px;
+    /* ¡CLAVE! Empuja este elemento a la derecha del todo, después del logo y el menú */
+    margin-left: auto;
+}
+
+.nav-social-icons a {
+    color: var(--bg-light);
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-social-icons a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* Estilos para el botón de menú hamburguesa */
+.hamburger-menu {
+    display: none; /* Oculto por defecto en pantallas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: var(--text-color); /* Ajusta el color del ícono */
+}
+
+/* MEDIAS QUERIES - Se aplican solo en pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ajustes generales para el nav en móvil */
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-social-icons {
+        display: none; /* Ocultamos los íconos sociales en móvil para simplificar */
+    }
+
+    .logo-link {
+        order: 1; /* Posicionamos el logo a la izquierda */
+    }
+
+    .hamburger-menu {
+        display: block; /* Mostramos el botón de hamburguesa */
+        order: 2; /* Posicionamos el botón a la derecha */
+    }
+
+      .nav-menu {
+        /* Estilos del menú móvil */
+        flex-direction: column;
+        position: fixed; /* Usamos fixed en lugar de absolute para la animación */
+        top: 110px;
+        right: 0;
+        width: 100%;
+        height: calc(100vh - 110px); /* Ocupa el resto de la pantalla */
+        background-color: var(--bg-medium);
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        z-index: 999;
+        
+        /* --- NUEVAS PROPIEDADES DE ANIMACIÓN --- */
+        transform: translateY(100%); /* Lo oculta completamente */
+        opacity: 0;
+        transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+
+    /* Clase que se activa cuando el menú está abierto */
+    .nav-menu.open {
+        display: flex; /* Ahora sí podemos usar flex */
+        transform: translate(0); /* Lo muestra en su posición original */
+        opacity: 1;
+    }
+
+    /* --- NUEVA REGLA PARA LOS ELEMENTOS DE LA LISTA --- */
+    .nav-menu li {
+        border-bottom: 1px solid var(--border-color-light); /* Línea de separación */
+        padding: 4px 0; /* Espacio vertical para cada elemento */
+    }
+    /* Para el último elemento, quitamos el borde para que no se vea doble */
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
+    /* --- NUEVA REGLA PARA CAMBIAR EL COLOR DE LA LETRA EN MÓVIL --- */
+    .nav-menu a {
+        color: var( --primary-color); /* o el color que prefieras, por ejemplo, #ffffff */
+    }
+}

@@ -1,0 +1,437 @@
+/* ¡¡¡REGLAS CRÍTICAS PARA ANULAR ESTILOS DE BOILERPLATE Y ASEGURAR ANCHO COMPLETO!!! */
+html, body {
+    width: 100% ; /* Force full width */
+    height: 100% ; /* Force full height */
+    margin: 0 ;
+    padding: 0 ;
+    overflow-x: hidden ; /* Prevent horizontal scroll */
+    box-sizing: border-box ; /* Include padding/border in width/height */
+}
+
+body {
+    /* ¡¡¡SOBRESCRIBIR ESTILOS DE BOILERPLATE COMO 'display: flex' Y CENTRADO!!! */
+    display: block ; /* Force 'body' to be a normal block */
+    place-items: unset ; /* Deactivate 'place-items' centering */
+    min-width: unset ; /* Remove 'min-width' if applied by default */
+    min-height: unset ; /* Remove 'min-height' if applied by default */
+
+    font-family: sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding-top: 100px ; /* AUMENTADO SIGNIFICATIVAMENTE: PARA EVITAR SUPERPOSICIÓN CON EL NAV */
+}
+
+/* Regla para #root (main React app container) */
+#root {
+    max-width: 100% ; /* Force 100% width */
+    margin: 0 auto ; /* Keep centered, but won't affect full width */
+    padding: 0 ; /* No padding on root to avoid scrollbars */
+    box-sizing: border-box ;
+    text-align: unset ; /* Deactivate global text-align if not desired */
+}
+
+/* GENERAL (already have, just ensure padding-top for fixed nav) */
+/* NOTE: Body rules moved to top for higher specificity */
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-image: url('Assets/index/heroBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-dark);
+    padding: 60px 50px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-hero-overlay);
+    z-index: -1;
+}
+
+.hero-text,
+.hero-img {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.hero-text p {
+    font-size: 1.7em;
+    color: var(--text-medium);
+}
+
+.hero-line {
+    border: none;
+    border-top: 2px solid var(--primary-color);
+    width: 30%;
+    margin: 0 auto 20px 0;
+}
+
+.hero-img {
+    flex: 1;
+    min-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-img img {
+    max-width: 62%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Section spacing */
+section {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* Filters */
+.filter-menu {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto;
+    padding: 0 20px;
+    list-style: none;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.filter-menu li {
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+    color: var(--text-dark);
+}
+
+.filter-menu li:hover {
+    color: var(--accent-color);
+}
+
+.filter-menu li.active {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    font-weight: bold;
+}
+
+/* IMPORTANT: Utility class for hiding sections. */
+.hidden-section {
+    display: none ;
+}
+
+
+/* --- Styles for Projects and Portfolio Sections --- */
+
+/* Section Titles */
+#projects-section h2,
+#portfolio-section h2 {
+    text-align: center;
+    font-size: 2.8em;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+#projects-section h2::after,
+#portfolio-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+#projects-section h2:hover::after,
+#portfolio-section h2:hover::after {
+    width: 100px;
+}
+
+
+/* Individual Project Card Styles */
+.project-card {
+    background-color: var(--bg-medium);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px var(--shadow-light);
+    padding: 25px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    width: auto;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px var(--shadow-medium);
+}
+
+/* Links inside cards */
+.project-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Card Image */
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Card Title */
+.project-card h3 {
+    font-size: 1.6em;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+/* Tags */
+.project-card p:first-of-type {
+    font-size: 0.95em;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    min-height: 20px;
+}
+
+.project-card .tag {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-right: 8px;
+    margin-bottom: 5px;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+/* Description */
+.project-card p:last-of-type {
+    font-size: 1em;
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* "See more projects" card */
+article.project-card.see-more {
+    background-color: var(--bg-light);
+    border: 2px dashed var(--border-color-medium);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-dark);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+article.project-card.see-more h3 {
+    font-size: 1.8em;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+}
+
+article.project-card.see-more a {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+article.project-card.see-more a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* --- CAROUSEL STYLES --- */
+.carousel-wrapper {
+    position: relative;
+    max-width: 90%;
+    margin: 0 auto 60px auto;
+    padding: 0 40px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.carousel-container {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease-in-out;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    gap: 20px;
+}
+
+/* Adjustments for project-cards inside carousel */
+.carousel-container .project-card {
+    flex: 0 0 calc(33.333% - 13.333px);
+    max-width: none;
+}
+
+/* For smaller screens */
+@media (max-width: 1024px) {
+    .carousel-container .project-card {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-container .project-card {
+        flex: 0 0 calc(100% - 0px);
+    }
+    .carousel-wrapper {
+        padding: 0 20px;
+    }
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-dark);
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-arrow.left {
+    left: 0;
+}
+
+.carousel-arrow.right {
+    right: 0;
+}
+
+/* Ensure "See more projects" card is always last and correctly sized in carousel */
+.project-card.see-more {
+    flex: 0 0 calc(33.333% - 13.333px);
+    order: 99;
+}
+
+/* Media Query for "See More" card on smaller resolutions */
+@media (max-width: 1024px) {
+    .project-card.see-more {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .project-card.see-more {
+        flex: 0 0 calc(100% - 0px);
+    }
+}
+
+
+/* Fonts */
+.my-name {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.welcome-font {
+    font-family: "WDXL Lubrifont JP N", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+}
+
+/* Adjustments for About Me and Contact sections to take full width */
+#about-me,
+#contact {
+    padding: 80px 40px;
+    max-width: 100%; /* CHANGED: Occupies full available width */
+    margin: 60px auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow-medium);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Media Query for About Me and Contact sections on mobile */
+@media (max-width: 768px) {
+    #about-me,
+    #contact {
+        padding: 40px 20px;
+        margin: 30px auto;
+    }
+    #about-me h2,
+    #contact h2 {
+        font-size: 2.2em;
+    }
+    #about-me p,
+    .contact-intro {
+        font-size: 1em;
+    }
+}

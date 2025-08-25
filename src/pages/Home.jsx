@@ -36,15 +36,19 @@ const Home = () => {
     const [activeSection, setActiveSection] = useState('projects');
 
     useEffect(() => {
+        // Set the backend URL based on the environment
+        const BACKEND_URL = process.env.NODE_ENV === 'production'
+            ? 'https://backendportfoliorcv.onrender.com' // Production URL
+            : 'http://localhost:10000'; // Development URL
+
         // Función para cargar los proyectos desde la API
         const fetchProjects = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/projects');
+                const response = await fetch(`${BACKEND_URL}/api/projects`);
                 if (!response.ok) {
                     throw new Error(`Error al cargar proyectos: ${response.statusText}`);
                 }
                 const data = await response.json();
-                // Usa slice para mostrar solo una parte de los proyectos
                 setProjects(data.slice(0, 4));
             } catch (error) {
                 console.error("Error fetching projects:", error);
@@ -54,22 +58,20 @@ const Home = () => {
         // Función para cargar el portafolio desde la API
         const fetchPortfolio = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api/portfolio');
+                const response = await fetch(`${BACKEND_URL}/api/portfolio`);
                 if (!response.ok) {
                     throw new Error(`Error al cargar portafolio: ${response.statusText}`);
                 }
                 const data = await response.json();
-                // Usa slice para mostrar solo una parte del portafolio
                 setPortfolio(data.slice(0, 4));
             } catch (error) {
                 console.error("Error fetching portfolio:", error);
             }
         };
 
-        // Llama a ambas funciones de carga al montar el componente
         fetchProjects();
         fetchPortfolio();
-    }, []); // El array vacío asegura que se ejecute solo una vez al inicio
+    }, []);
 
     // Función para manejar el desplazamiento del carrusel
     const handleScroll = (direction, carouselRef) => {

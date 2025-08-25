@@ -7,7 +7,7 @@ import Contact from '../../components/Contact'; // Asegúrate de tener este comp
 // import '../styles/colors.css';
 // import '../styles/Nav.css';
 // import '../styles/footer.css';
- import '../../styles/Presentation.css';
+import '../../styles/presentation.css';
  import Tools from '../../components/tools';
 
 // Nota: Las fuentes de Google Fonts, Font Awesome y otros metadatos

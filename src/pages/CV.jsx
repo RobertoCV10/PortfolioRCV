@@ -4,7 +4,7 @@ import Nav from '../components/Nav';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
-import '../styles/CVPage.css'; // Importa los estilos para esta página
+import '../styles/CVpage.css'; // Importa los estilos para esta página
 
 const CVPage = () => {
     // La ruta a tu archivo PDF, asumiendo que está en public/Assets/cv/

@@ -13,29 +13,27 @@ const Projects = () => {
     const [selectedTag, setSelectedTag] = useState('all');
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/projects')
-            .then(res => res.json())
-            .then(data => {
-                setAllProjects(data);
-                setFilteredProjects(data);
-            })
-            .catch(err => console.error('Error loading projects:', err));
+        // Set the backend URL based on the environment
+        const BACKEND_URL = process.env.NODE_ENV === 'production'
+            ? 'https://backendportfoliorcv.onrender.com' // Production URL
+            : 'http://localhost:10000'; // Development URL
+
+        // Función para cargar los proyectos desde la API
+        const fetchProjects = async () => {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/projects`);
+                if (!response.ok) {
+                    throw new Error(`Error al cargar proyectos: ${response.statusText}`);
+                }
+                const data = await response.json();
+                setProjects(data.slice(0, 4));
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+            }
+        };
+
+        fetchProjects();
     }, []);
-
-    useEffect(() => {
-        if (selectedTag === 'all') {
-            setFilteredProjects(allProjects);
-        } else {
-            const filtered = allProjects.filter(project =>
-                project.tags.some(tag => tag.toLowerCase() === selectedTag)
-            );
-            setFilteredProjects(filtered);
-        }
-    }, [selectedTag, allProjects]);
-
-    const handleFilterChange = (event) => {
-        setSelectedTag(event.target.value);
-    };
 
     return (
         <>

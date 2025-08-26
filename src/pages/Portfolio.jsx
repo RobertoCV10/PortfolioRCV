@@ -15,13 +15,26 @@ const Portfolio = () => {
 
     // 1. Carga los datos del portafolio desde la API
     useEffect(() => {
-        fetch('http://localhost:3000/api/portfolio')
-            .then(res => res.json())
-            .then(data => {
-                setAllPortfolio(data);
-                setFilteredPortfolio(data); // Al inicio, mostrar todos los elementos
-            })
-            .catch(err => console.error('Error loading portfolio:', err));
+        // Set the backend URL based on the environment
+        const BACKEND_URL = process.env.NODE_ENV === 'production'
+            ? 'https://backendportfoliorcv.onrender.com' // Production URL
+            : 'http://localhost:10000'; // Development URL
+
+        // Función para cargar el portafolio desde la API
+        const fetchPortfolio = async () => {
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/portfolio`);
+                if (!response.ok) {
+                    throw new Error(`Error al cargar portafolio: ${response.statusText}`);
+                }
+                const data = await response.json();
+                setPortfolio(data.slice(0, 4));
+            } catch (error) {
+                console.error("Error fetching portfolio:", error);
+            }
+        };
+
+        fetchPortfolio();
     }, []);
 
     // 2. Filtra el portafolio cada vez que la etiqueta seleccionada cambie

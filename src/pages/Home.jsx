@@ -44,7 +44,7 @@ const Home = () => {
         // Función para cargar los proyectos desde la API
         const fetchProjects = async () => {
             try {
-                const response = await fetch(`${BACKEND_URL}/projects`);
+                const response = await fetch(`${BACKEND_URL}/api/projects`);
                 if (!response.ok) {
                     throw new Error(`Error al cargar proyectos: ${response.statusText}`);
                 }
@@ -58,7 +58,7 @@ const Home = () => {
         // Función para cargar el portafolio desde la API
         const fetchPortfolio = async () => {
             try {
-                const response = await fetch(`${BACKEND_URL}/portfolio`);
+                const response = await fetch(`${BACKEND_URL}/api/portfolio`);
                 if (!response.ok) {
                     throw new Error(`Error al cargar portafolio: ${response.statusText}`);
                 }

@@ -43,16 +43,12 @@ const Projects = () => {
             setFilteredProjects(allProjects);
         } else {
             const projectsFiltered = allProjects.filter(project => 
-                project.tags.includes(selectedTag)
+                // Convert both the project's tags and the selected tag to lowercase for comparison
+                project.tags.map(tag => tag.toLowerCase()).includes(selectedTag.toLowerCase())
             );
             setFilteredProjects(projectsFiltered);
         }
     }, [selectedTag, allProjects]);
-
-    // This function is called when the user changes the filter selection
-    const handleFilterChange = (event) => {
-        setSelectedTag(event.target.value);
-    };
 
     return (
         <>

@@ -133,7 +133,8 @@ nav {
         top: 110px;
         right: 0;
         width: 100%;
-        height: calc(100vh - 110px); /* Occupy the rest of the screen */
+        /* Corrected calculation for mobile menu height */
+        height: calc(100vh - 110px);
         background-color: var(--bg-medium);
         padding: 20px;
         text-align: center;
@@ -141,15 +142,14 @@ nav {
         z-index: 999;
         
         /* --- NEW ANIMATION PROPERTIES --- */
-        transform: translateY(100%); /* Hides it completely */
+        transform: translateX(100%); /* Hides it completely */
         opacity: 0;
         transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     }
 
     /* Class that activates when the menu is open */
-    .nav-menu.open {
-        display: flex; /* Now we can use flex */
-        transform: translate(0); /* Shows it in its original position */
+    .nav-links-wrapper.nav-open {
+        transform: translateX(0); /* Shows it in its original position */
         opacity: 1;
     }
 

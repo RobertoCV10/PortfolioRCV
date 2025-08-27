@@ -8,40 +8,58 @@ const ToolsCarousel = ({ toolIdsToShow = null }) => {
 
     // 1. Cargar los datos de las herramientas desde la API y filtrarlos si es necesario
     useEffect(() => {
-        fetch('http://localhost:3000/api/tools') // Ruta de tu API
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error(`HTTP error! status: ${res.status}`);
+        // Define la URL del backend basada en el entorno
+        const BACKEND_URL = process.env.NODE_ENV === 'production'
+            ? 'https://backendportfoliorcv.onrender.com'
+            : 'http://localhost:10000';
+
+        const fetchTools = async () => {
+            try {
+                // Realiza la solicitud a la API utilizando la URL definida
+                const response = await fetch(`${BACKEND_URL}/api/tools`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return res.json();
-            })
-            .then(data => {
+                const data = await response.json();
+                
                 let filteredData = data;
                 // Si toolIdsToShow es un array no vacío, filtramos los datos
                 if (toolIdsToShow && toolIdsToShow.length > 0) {
                     filteredData = data.filter(tool => toolIdsToShow.includes(tool.id));
                 }
                 
+                // Actualiza el estado con los datos filtrados
                 setToolImagesData(filteredData);
-            })
-            .catch(err => console.error('Error al cargar las herramientas:', err));
+            } catch (err) {
+                console.error('Error al cargar las herramientas:', err);
+                // Si hay un error, puedes establecer los datos a un array vacío
+                setToolImagesData([]);
+            }
+        };
+
+        fetchTools(); // Llama a la función para ejecutarla
+        
     }, [toolIdsToShow]); // Añadir toolIdsToShow como dependencia para que se re-ejecute si cambia
 
-    // No renderiza nada si aún no hay datos o si los datos filtrados están vacíos
+    // Si toolImagesData está vacío, muestra un mensaje de carga o de error
     if (toolImagesData.length === 0) {
-        return <section className="tools-carousel-section">No tools to display or loading...</section>;
+        return (
+            <section className="tools-carousel-section">
+                <h2 className="tools-carousel-title">Tools & Technologies</h2>
+                <div className="tools-carousel-wrapper">
+                    <p>Cargando herramientas...</p>
+                </div>
+            </section>
+        );
     }
 
     // Duplicamos los datos para crear el efecto de scroll infinito
-    // Esto asegura que haya suficiente contenido para que la animación CSS sea fluida
     const infiniteToolImagesData = [...toolImagesData, ...toolImagesData];
 
     return (
         <section className="tools-carousel-section">
             <h2 className="tools-carousel-title">Tools & Technologies</h2>
             <div className="tools-carousel-wrapper">
-                {/* Las flechas se han eliminado para un carrusel de auto-scroll infinito */}
-                {/* Se mueve directamente el contenedor interno con animación CSS */}
                 <div className="tools-carousel-container" ref={carouselContainerRef}>
                     {infiniteToolImagesData.map((tool, index) => (
                         // Usar una clave única para cada elemento, incluso los duplicados

@@ -3,10 +3,9 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--bg-light); /* Aplicar color de fondo general aquí */
-    color: var(--text-dark); /* Por defecto, el texto principal es claro para fondos oscuros */
-    padding-top: 115px; /* ESPACIO PARA EL NAV FIJO. Ajusta si tu nav tiene otra altura. */
-
+    background-color: var(--bg-light); /* Apply general background color here */
+    color: var(--text-dark); /* By default, main text is light for dark backgrounds */
+    padding-top: 115px; /* SPACE FOR THE FIXED NAV. Adjust if your nav has a different height. */
 }
 
 /* NAV */
@@ -15,14 +14,14 @@ nav {
     padding: 10px 40px;
     margin-top: 0px;
 
-    /* --- ¡NUEVAS PROPIEDADES PARA HACERLO FIJO! --- */
-    position: fixed; /* Hace que el elemento no se mueva con el scroll */
-    top: 0;          /* Lo pega a la parte superior de la ventana */
-    width: 100%;     /* Asegura que ocupe todo el ancho de la ventana */
-    z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+    /* --- NEW PROPERTIES TO MAKE IT FIXED! --- */
+    position: fixed; /* Makes the element not move with scrolling */
+    top: 0;          /* Sticks it to the top of the window */
+    width: 100%;     /* Ensures it occupies the full width of the window */
+    z-index: 1000;   /* Ensures it is above other elements */
     /* ----------------------------------------------- */
 
-    box-sizing: border-box; /* Mantiene el padding dentro del ancho total */
+    box-sizing: border-box; /* Keeps padding within the total width */
 }
 
 .nav-container {
@@ -38,6 +37,8 @@ nav {
 .nav-logo {
     height: 90px;
     width: auto;
+    /* Add smooth transition for sizing changes */
+    transition: height 0.3s ease;
 }
 
 .nav-menu {
@@ -57,7 +58,7 @@ nav {
     font-family: "Tektur", sans-serif;
     font-weight: 600;
     font-size: 1.1em;
-    color: var(--bg-medium); /* Usando la variable de color */
+    color: var(--bg-medium); /* Using the color variable */
     text-decoration: none;
 }
 
@@ -65,11 +66,11 @@ nav {
     color: var(--secondary-color);
 }
 
-/* NAV SOCIAL ICONS - Iconos a la derecha */
+/* NAV SOCIAL ICONS - Icons on the right */
 .nav-social-icons {
     display: flex;
     gap: 20px;
-    /* ¡CLAVE! Empuja este elemento a la derecha del todo, después del logo y el menú */
+    /* KEY! Pushes this element to the far right, after the logo and menu */
     margin-left: auto;
 }
 
@@ -85,75 +86,97 @@ nav {
 }
 
 
-/* Estilos para el botón de menú hamburguesa */
+/* Styles for the hamburger menu button */
 .hamburger-menu {
-    display: none; /* Oculto por defecto en pantallas grandes */
+    display: none; /* Hidden by default on large screens */
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.5em;
-    color: var(--text-color); /* Ajusta el color del ícono */
+    color: var(--text-color); /* Adjust icon color */
 }
 
-/* MEDIAS QUERIES - Se aplican solo en pantallas pequeñas */
-@media (max-width: 768px) {
-    /* Ajustes generales para el nav en móvil */
+/* MEDIA QUERIES - Apply only on small screens */
+@media (max-width: 900px) {
+    /* Adjust padding for the nav container on smaller screens */
+    nav {
+        padding: 10px 20px;
+    }
+    
+    /* Reduce logo size on tablets and large mobiles */
+    .nav-logo {
+        height: 70px;
+    }
+
+    /* Adjustments for the hamburger menu */
     .nav-container {
         justify-content: space-between;
     }
 
     .nav-social-icons {
-        display: none; /* Ocultamos los íconos sociales en móvil para simplificar */
+        display: none; /* Hide social icons on mobile for simplicity */
     }
 
     .logo-link {
-        order: 1; /* Posicionamos el logo a la izquierda */
+        order: 1; /* Position logo to the left */
     }
 
     .hamburger-menu {
-        display: block; /* Mostramos el botón de hamburguesa */
-        order: 2; /* Posicionamos el botón a la derecha */
+        display: block; /* Show hamburger button */
+        order: 2; /* Position button to the right */
     }
 
-      .nav-menu {
-        /* Estilos del menú móvil */
+    .nav-menu {
+        /* Mobile menu styles */
         flex-direction: column;
-        position: fixed; /* Usamos fixed en lugar de absolute para la animación */
+        position: fixed; /* Use fixed instead of absolute for animation */
         top: 110px;
         right: 0;
         width: 100%;
-        height: calc(100vh - 110px); /* Ocupa el resto de la pantalla */
+        height: calc(100vh - 110px); /* Occupy the rest of the screen */
         background-color: var(--bg-medium);
         padding: 20px;
         text-align: center;
         box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         z-index: 999;
         
-        /* --- NUEVAS PROPIEDADES DE ANIMACIÓN --- */
-        transform: translateY(100%); /* Lo oculta completamente */
+        /* --- NEW ANIMATION PROPERTIES --- */
+        transform: translateY(100%); /* Hides it completely */
         opacity: 0;
         transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     }
 
-    /* Clase que se activa cuando el menú está abierto */
+    /* Class that activates when the menu is open */
     .nav-menu.open {
-        display: flex; /* Ahora sí podemos usar flex */
-        transform: translate(0); /* Lo muestra en su posición original */
+        display: flex; /* Now we can use flex */
+        transform: translate(0); /* Shows it in its original position */
         opacity: 1;
     }
 
-    /* --- NUEVA REGLA PARA LOS ELEMENTOS DE LA LISTA --- */
+    /* --- NEW RULE FOR LIST ELEMENTS --- */
     .nav-menu li {
-        border-bottom: 1px solid var(--border-color-light); /* Línea de separación */
-        padding: 4px 0; /* Espacio vertical para cada elemento */
+        border-bottom: 1px solid var(--border-color-light); /* Separation line */
+        padding: 4px 0; /* Vertical space for each element */
     }
-    /* Para el último elemento, quitamos el borde para que no se vea doble */
+    /* For the last element, we remove the border so it doesn't look double */
     .nav-menu li:last-child {
         border-bottom: none;
     }
 
-    /* --- NUEVA REGLA PARA CAMBIAR EL COLOR DE LA LETRA EN MÓVIL --- */
+    /* --- NEW RULE TO CHANGE LETTER COLOR ON MOBILE --- */
     .nav-menu a {
-        color: var( --primary-color); /* o el color que prefieras, por ejemplo, #ffffff */
+        color: var( --primary-color); /* or the color you prefer, for example, #ffffff */
+    }
+}
+/* Adjustments for very small screens (phones) */
+@media (max-width: 480px) {
+    /* Adjust padding for the nav container on very small screens */
+    nav {
+        padding: 10px 15px;
+    }
+
+    /* Further reduce the logo size on smaller phones */
+    .nav-logo {
+        height: 50px;
     }
 }

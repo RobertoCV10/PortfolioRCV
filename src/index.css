@@ -498,7 +498,7 @@ article.project-card.see-more a:hover {
     }
 
     .filter-menu {
-        flex-direction: column; /* Apila los filtros */
+        
         align-items: flex-start;
         padding: 0 15px;
         gap: 10px; /* Menor espacio entre filtros */

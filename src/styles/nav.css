@@ -130,7 +130,7 @@ nav {
         /* Mobile menu styles */
         flex-direction: column;
         position: fixed; /* Use fixed instead of absolute for animation */
-        top: 110px;
+        top: 30px;
         right: 0;
         width: 100%;
         height: calc(100vh - 110px); /* Occupy the rest of the screen */

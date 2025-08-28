@@ -14,13 +14,15 @@ import './styles/tools.css';
 // Importa los componentes que se ven en TODAS las páginas
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import Tools from './components/tools';
+
 
 // Importa los componentes de las páginas individuales
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Portfolio from './pages/Portfolio';
 import CV from './pages/CV';
-import Tools from './components/tools';
+import NotFoundPage from './pages/NotFoundPage'; // ¡Importa la nueva página 404!
 
 // Importa los componentes de los proyectos y portafolios
 import Arm from './pages/projects/arm';
@@ -28,6 +30,7 @@ import Maze from './pages/projects/maze';
 import Rocket from './pages/projects/rocket';
 import Task from './pages/projects/task';
 import PLC from './pages/projects/plc';
+
 
 //importa ajuste de scroll
 import ScrollToTop from './assets/scroll'; // Importa el nuevo componente
@@ -52,6 +55,8 @@ function App() {
                 <Route path="/rocket" element={<Rocket />} />
                 <Route path="/task" element={<Task />} />
                 <Route path="/plc" element={<PLC />} />
+
+                <Route path="*" element={<NotFoundPage />} /> 
             </Routes>
             <ScrollBtn /> {/* ¡Renderiza el botón de scroll aquí! */}
             

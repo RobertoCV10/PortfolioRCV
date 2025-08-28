@@ -1,0 +1,78 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 115px); /* Altura mínima: 100% del viewport menos la altura de tu nav */
+    text-align: center;
+    background-color: var(--bg-light); /* Utiliza tu color de fondo principal */
+    color: var(--text-dark); /* Utiliza tu color de texto principal */
+    padding: 20px;
+    box-sizing: border-box; /* Incluye padding en el tamaño total */
+}
+
+.not-found-title {
+    font-family: "Tektur", sans-serif; /* Tu fuente de encabezado */
+    font-size: 8em; /* Un tamaño grande para el 404 */
+    color: var(--primary-color); /* Tu color principal */
+    margin: 0;
+    line-height: 1;
+}
+
+.not-found-message {
+    font-size: 2em;
+    color: var(--text-dark);
+    margin: 20px 0 10px 0;
+}
+
+.not-found-description {
+    font-size: 1.1em;
+    color: var(--text-medium); /* Un color de texto secundario */
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.not-found-button {
+    display: inline-block;
+    background-color: var(--secondary-color); /* Tu color secundario */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.not-found-button:hover {
+    background-color: var(--primary-color); /* Cambia al color principal al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .not-found-title {
+        font-size: 6em;
+    }
+    .not-found-message {
+        font-size: 1.5em;
+    }
+    .not-found-description {
+        font-size: 1em;
+    }
+    .not-found-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .not-found-title {
+        font-size: 4em;
+    }
+    .not-found-message {
+        font-size: 1.2em;
+    }
+    .not-found-description {
+        font-size: 0.9em;
+    }
+}

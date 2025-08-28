@@ -128,7 +128,7 @@
     .tools-carousel-item {
         /* Para 2 ítems por fila + 1 gap. Si wrapper tiene 992px y 2*30px padding = 932px efectivos
            (932px - 20px (gap)) / 2 = 456px por item */
-        flex-basis: 456px; 
+        flex-basis: 150px; 
         width: 456px; /* Ancho preciso para 2 items */
         min-width: 180px; /* Asegura un mínimo */
         padding: 20px;
@@ -148,7 +148,6 @@
         padding: 0 15px; /* Más compacto para móviles */
     }
     .tools-carousel-item {
-        flex-basis: 100%; /* Ocupa el ancho completo disponible */
         width: 100%; /* Asegura que no haya problemas de flex-basis */
         min-width: unset; /* Ya no necesitamos un min-width fijo aquí */
         padding: 15px;

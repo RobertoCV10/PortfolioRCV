@@ -66,10 +66,11 @@ const Portfolio = () => {
                     <label htmlFor="filter">Filter by:</label>
                     <select id="filter" value={selectedTag} onChange={handleFilterChange}>
                         <option value="all">All</option>
-                        <option value="web-development">Web Development</option>
-                        <option value="design">Design</option>
-                        <option value="backend">Backend</option>
-                        <option value="ui/ux">UI/UX</option>
+                        <option value="app">App</option>
+                        <option value="react">React</option>
+                        <option value="mongodb">MongoDB</option>
+                        <option value="node.js">Node.js</option>
+                        <option value="material ui">Material UI</option>
                     </select>
                 </section>
             </div>

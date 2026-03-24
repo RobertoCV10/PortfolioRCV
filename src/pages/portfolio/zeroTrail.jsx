@@ -20,16 +20,17 @@ const ZeroTrail = () => {
           </p>
         </section>
 
-        {/* Live demo link — prominent entry point for recruiters */}
         <section className="project-section">
-          <a
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+            <a
             href="https://zero-trail.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="call-to-action-button"
-          >
-             View Live Site
-          </a>
+            >
+            <i className="fas fa-external-link-alt"></i> View Live Site
+            </a>
+        </div>
         </section>
 
         <section className="project-section">

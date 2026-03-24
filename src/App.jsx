@@ -31,6 +31,8 @@ import Rocket from './pages/projects/rocket';
 import Task from './pages/projects/task';
 import PLC from './pages/projects/plc';
 
+//portfolio items
+import ZeroTrail from './pages/portfolio/zeroTrail';
 
 //importa ajuste de scroll
 import ScrollToTop from './assets/scroll'; // Importa el nuevo componente
@@ -55,6 +57,7 @@ function App() {
                 <Route path="/rocket" element={<Rocket />} />
                 <Route path="/task" element={<Task />} />
                 <Route path="/plc" element={<PLC />} />
+                <Route path="/zeroTrail" element={<ZeroTrail />} />
 
                 <Route path="*" element={<NotFoundPage />} /> 
             </Routes>

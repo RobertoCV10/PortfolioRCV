@@ -79,7 +79,7 @@ const Portfolio = () => {
                 {filteredPortfolio.length > 0 ? (
                     filteredPortfolio.map(item => (
                         <article key={item.id} className="project-card">
-                            <Link to={`/portfolio/${item.id}`} className="project-link">
+                            <Link to={`/portfolio/${item.url}`} className="project-link">
                                 <img src={item.image} alt={item.title} className="project-image" />
                                 <div className="project-info">
                                     <h3>{item.title}</h3>

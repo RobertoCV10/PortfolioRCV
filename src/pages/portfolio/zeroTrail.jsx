@@ -69,7 +69,7 @@ const ZeroTrail = () => {
           <h3>Detail Information</h3>
           <div className="github-link">
             <a
-              href="https://github.com/RobertoCV10"
+              href="https://github.com/RobertoCV10/zero-trail"
               target="_blank"
               rel="noopener noreferrer"
               className="call-to-action-button"
@@ -77,7 +77,7 @@ const ZeroTrail = () => {
               <i className="fab fa-github"></i> See GitHub repository
             </a>
           </div>
-          <Tools toolIdsToShow={[7, 1, 3, 2, 5, 6]} />
+          <Tools toolIdsToShow={[13, 14, 15, 16, 17]} />
         </section>
 
       </main>

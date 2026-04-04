@@ -139,7 +139,7 @@ const Home = () => {
                                     {createSeeMoreCard('/projects')}
                                 </>
                             ) : (
-                                <p>Cargando proyectos...</p>
+                                <p> Data may take up to 5 minutes to load. Please be patient!</p>
                             )}
                         </div>
                         <button className="carousel-arrow right" onClick={() => handleScroll('right', projectsCarouselRef)}>&gt;</button>
@@ -159,7 +159,7 @@ const Home = () => {
                                     {createSeeMoreCard('/portfolio')}
                                 </>
                             ) : (
-                                <p>Cargando portafolio...</p>
+                                <p> Data may take up to 5 minutes to load. Please be patient!</p>
                             )}
                         </div>
                         <button className="carousel-arrow right" onClick={() => handleScroll('right', portfolioCarouselRef)}>&gt;</button>

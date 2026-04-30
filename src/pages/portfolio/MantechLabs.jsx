@@ -28,7 +28,7 @@ const MantechLabs = () => {
             rel="noopener noreferrer"
             className="call-to-action-button"
             >
-            <i className="fas fa-download"></i> Download for Windows
+            <i className="fas fa-download"></i> Visit official website
             </a>
         </div>
         </section>
@@ -73,7 +73,7 @@ const MantechLabs = () => {
               <i className="fab fa-github"></i> See GitHub repository
             </a>
           </div>
-          <Tools toolIdsToShow={[1, 2, 3, 4, 5, 6]} />
+          <Tools toolIdsToShow={[16, 18, 19, 17, 15]} />
         </section>
 
       </main>

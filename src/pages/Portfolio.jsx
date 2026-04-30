@@ -71,6 +71,8 @@ const Portfolio = () => {
                         <option value="mongodb">MongoDB</option>
                         <option value="node.js">Node.js</option>
                         <option value="material ui">Material UI</option>
+                        <option value="typescript">TypeScript</option>
+                        
                     </select>
                 </section>
             </div>

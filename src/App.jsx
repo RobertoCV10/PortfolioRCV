@@ -33,6 +33,7 @@ import PLC from './pages/projects/plc';
 
 //portfolio items
 import ZeroTrail from './pages/portfolio/zeroTrail';
+import MantechLabs from './pages/portfolio/MantechLabs';
 
 //importa ajuste de scroll
 import ScrollToTop from './assets/scroll'; // Importa el nuevo componente
@@ -58,7 +59,7 @@ function App() {
                 <Route path="/task" element={<Task />} />
                 <Route path="/plc" element={<PLC />} />
                 <Route path="/zeroTrail" element={<ZeroTrail />} />
-
+                <Route path="/mantechLabs" element={<MantechLabs />} />
                 <Route path="*" element={<NotFoundPage />} /> 
             </Routes>
             <ScrollBtn /> {/* ¡Renderiza el botón de scroll aquí! */}

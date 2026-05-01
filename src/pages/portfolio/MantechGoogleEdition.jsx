@@ -54,7 +54,6 @@ const MantechGoogleEdition = () => {
         </section>
 
         <section className="project-section">
-          <h2>Tools & Technologies</h2>
           {/* Adjusted tool IDs to reflect Google Apps Script, JavaScript, and HTML/CSS focus */}
           <Tools toolIdsToShow={[20, 21, 22]} />
         </section>

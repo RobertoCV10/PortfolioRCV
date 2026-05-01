@@ -20,7 +20,7 @@ const MantechGoogleEdition = () => {
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
             {/* Note: Update this link once the specific project web app or demo is deployed */}
             <a
-              href="#"
+              href="https://script.google.com/macros/s/AKfycbyZq1QuXUP_uLMPUAPARglqsKYYwAs6pPii-i49n2ArwFdcSBovIWT-6p73Ai7AvTET/exec"
               target="_blank"
               rel="noopener noreferrer"
               className="call-to-action-button"
@@ -54,17 +54,7 @@ const MantechGoogleEdition = () => {
         </section>
 
         <section className="project-section">
-          <h3>Project Details</h3>
-          <div className="github-link">
-            <a
-              href="https://script.google.com/macros/s/AKfycbyZq1QuXUP_uLMPUAPARglqsKYYwAs6pPii-i49n2ArwFdcSBovIWT-6p73Ai7AvTET/exec"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="call-to-action-button"
-            >
-              <i className="fab fa-github"></i> Visit Webpage
-            </a>
-          </div>
+          <h2>Tools & Technologies</h2>
           {/* Adjusted tool IDs to reflect Google Apps Script, JavaScript, and HTML/CSS focus */}
           <Tools toolIdsToShow={[20, 21, 22]} />
         </section>

@@ -72,7 +72,8 @@ const Portfolio = () => {
                         <option value="node.js">Node.js</option>
                         <option value="material ui">Material UI</option>
                         <option value="typescript">TypeScript</option>
-                        
+                        <option value="Google Apps Script">Google Apps Script</option>
+                        <option value="Google API">Google API</option>
                     </select>
                 </section>
             </div>

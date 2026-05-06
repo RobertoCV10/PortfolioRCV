@@ -63,7 +63,7 @@ function App() {
                 <Route path="/zeroTrail" element={<ZeroTrail />} />
                 <Route path="/mantechLabs" element={<MantechLabs />} />
                 <Route path="/mantechGoogleEdition" element={<MantechGoogleEdition />} />
-                <Route path="/ottStudio" element={<ottStudio />} />
+                <Route path="/ottStudio" element={<OttStudio />} />
                 <Route path="*" element={<NotFoundPage />} /> 
             </Routes>
             <ScrollBtn /> {/* ¡Renderiza el botón de scroll aquí! */}

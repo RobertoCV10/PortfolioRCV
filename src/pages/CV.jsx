@@ -9,7 +9,7 @@ import '../styles/CVpage.css'; // Importa los estilos para esta página
 const CVPage = () => {
     // La ruta a tu archivo PDF, asumiendo que está en public/Assets/cv/
     // ¡Asegúrate de cambiar 'your-cv-name.pdf' por el nombre real de tu archivo PDF!
-    const cvPdfPath = '/Assets/CV/RCV.pdf'; 
+    const cvPdfPath = '/Assets/CV/RCV2.pdf'; 
 
     return (
         <>

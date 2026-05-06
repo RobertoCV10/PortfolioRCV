@@ -7,15 +7,15 @@ const Contact = () => {
             <p className="contact-intro">Feel free to reach out to me! I'm always open to new opportunities, collaborations, or just a friendly chat about robotics.</p>
             <div className="contact-details">
                 <div className="contact-item">
-                    <span className="icon">✉️</span>
-                    <p><strong>Email:</strong> <a href="mailto:2109040@upy.edu.mx">2109040@upy.edu.mx</a></p>
+                    <span className="icon"></span>
+                    <p><strong>Email:</strong> <a href="mailto:roberto21.coria02@gmail.com">roberto21.coria02@gmail.com</a></p>
                 </div>
                 <div className="contact-item">
-                    <span className="icon">🔗</span>
+                    <span className="icon"></span>
                     <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/roberto-coria-vargas-088231309/" target="_blank">linkedin.com/in/roberto-coria-vargas</a></p>
                 </div>
                 <div className="contact-item">
-                    <span className="icon">💻</span>
+                    <span className="icon"></span>
                     <p><strong>GitHub:</strong> <a href="https://github.com/RobertoCV10" target="_blank">github.com/RobertoCV10</a></p>
                 </div>
             </div>

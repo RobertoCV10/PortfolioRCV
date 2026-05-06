@@ -35,7 +35,7 @@ import PLC from './pages/projects/plc';
 import ZeroTrail from './pages/portfolio/zeroTrail';
 import MantechLabs from './pages/portfolio/MantechLabs';
 import MantechGoogleEdition from './pages/portfolio/MantechGoogleEdition';
-import ottStudio from './pages/portfolio/ottStudio';
+import OttStudio from './pages/portfolio/ottStudio';
 
 //importa ajuste de scroll
 import ScrollToTop from './assets/scroll'; // Importa el nuevo componente

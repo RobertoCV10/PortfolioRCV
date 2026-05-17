@@ -45,14 +45,6 @@ const GitScope = () => {
             >
               <i className="fas fa-external-link-alt"></i> View Live Site
             </a>
-            <a
-              href="https://github.com/RobertoCV10/GitScope"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="call-to-action-button"
-            >
-              <i className="fab fa-github"></i> View Repository
-            </a>
           </div>
         </section>
 

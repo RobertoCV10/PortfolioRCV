@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Contact from '../../components/Contact';
 import '../../styles/presentation.css';
 import Tools from '../../components/tools';
-import GitScopeImage from '../../Assets/GitScope/GitScope.png';
+import GitScopeImage from '/Assets/GitScope/GitScope.png';
 
 const GitScope = () => {
   return (

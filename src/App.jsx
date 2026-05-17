@@ -36,6 +36,7 @@ import ZeroTrail from './pages/portfolio/zeroTrail';
 import MantechLabs from './pages/portfolio/MantechLabs';
 import MantechGoogleEdition from './pages/portfolio/MantechGoogleEdition';
 import OttStudio from './pages/portfolio/ottStudio';
+import GitScope from './pages/portfolio/GitScope';
 
 //importa ajuste de scroll
 import ScrollToTop from './assets/scroll'; // Importa el nuevo componente
@@ -64,6 +65,7 @@ function App() {
                 <Route path="/mantechLabs" element={<MantechLabs />} />
                 <Route path="/mantechGoogleEdition" element={<MantechGoogleEdition />} />
                 <Route path="/ottStudio" element={<OttStudio />} />
+                <Route path="/gitScope" element={<GitScope />} />
                 <Route path="*" element={<NotFoundPage />} /> 
             </Routes>
             <ScrollBtn /> {/* ¡Renderiza el botón de scroll aquí! */}
